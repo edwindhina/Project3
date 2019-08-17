@@ -1,0 +1,28 @@
+# file: mysql/tasks/users.yml
+
+
+
+- name: MySQL | Make sure the MySQL users are present
+
+  mysql_user:
+
+    name: "{{item.name}}"
+
+    password: "{{item.pass | default('pass')}}"
+
+    priv: "{{item.priv | default('*.*:ALL')}}"
+
+    state: present
+
+    host: "{{item.host | default('localhost')}}"
+
+  with_items: #mysql_users
+
+       - name: dhin
+
+         pass: password_123
+
+         priv: "*.*:ALL"                     # optional, defaults to "*.*:ALL"
+
+         host: "%"                           # optional, defaults to "localhost"
+#  when: length > 0

@@ -1,0 +1,22 @@
+# file: mysql/tasks/databases.yml
+
+
+
+- name: MySQL | Make sure the MySQL databases are present
+
+  mysql_db:
+
+    name: "{{ item.name }}"
+
+    collation: "{{ item.collation | default('utf8_general_ci') }}"
+
+    encoding: "{{ item.encoding | default('utf8') }}"
+
+    state: present
+
+  with_items: #mysql_databases
+       - name: our_db_name
+         collation: "utf8_general_ci"        # optional, defaults to "utf8_general_ci"
+         encoding: "utf8"                    # optional, defaults to "utf8"
+
+#  when: mysql_databases|length > 0

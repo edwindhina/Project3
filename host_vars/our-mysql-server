@@ -1,0 +1,9 @@
+---
+
+mysql_databases:
+
+  - name: our_db_name
+
+    collation: "utf8_general_ci"        # optional, defaults to "utf8_general_ci"
+
+    encoding: "utf8"                    # optional, defaults to "utf8"

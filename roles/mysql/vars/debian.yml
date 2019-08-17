@@ -1,0 +1,11 @@
+# file: mysql/vars/debian.yml
+
+
+
+mysql_packages:
+
+  - mysql-server
+
+  - mysql-client
+
+  - python-mysqldb
